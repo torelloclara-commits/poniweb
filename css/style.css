@@ -147,7 +147,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .hero-pattern {
   position: absolute;
   inset: 0;
-  background-image: url("../main/pattern-pony.png");
+  background-image: url("images/pattern-pony.png");
   background-size: 120px;
   opacity: 0.9;
   z-index: 0;

@@ -96,30 +96,18 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   start();
 })();
 
-// Photo collage columns: gentle scroll parallax — outer columns drift up, middle drifts down
-var pcCols = document.querySelectorAll('.pc-col-up, .pc-col-down');
-if (pcCols.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  var ticking = false;
-  var updateParallax = function () {
-    var vh = window.innerHeight;
-    pcCols.forEach(function (col) {
-      var rect = col.getBoundingClientRect();
-      var center = rect.top + rect.height / 2;
-      // progress: -1 (below viewport) .. 0 (centered) .. 1 (above viewport)
-      var progress = (vh / 2 - center) / vh;
-      progress = Math.max(-1, Math.min(1, progress));
-      var dir = col.classList.contains('pc-col-up') ? -1 : 1;
-      var shift = dir * progress * 36;
-      col.style.transform = 'translateY(' + shift + 'px)';
+// Photo collage: infinite vertical scroll (sides down, middle up)
+var collage = document.querySelector('.photo-collage');
+if (collage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  collage.querySelectorAll('.pc-track').forEach(function (track) {
+    Array.prototype.slice.call(track.children).forEach(function (item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      var img = clone.querySelector('img');
+      if (img) img.setAttribute('alt', '');
+      track.appendChild(clone);
     });
-    ticking = false;
-  };
-  document.addEventListener('scroll', function () {
-    if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
-  window.addEventListener('resize', updateParallax);
-  updateParallax();
+  });
+  collage.classList.add('pc-ready');
 }

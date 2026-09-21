@@ -318,26 +318,49 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .need-grid p { margin-top: 16px; max-width: 40ch; }
 .need-grid .btn { margin-top: 22px; }
 
+/* ---------- Photo collage: 3 columns scrolling forever ---------- */
 .photo-collage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  align-items: start;
+  height: 560px;                 /* alto de la "ventana"; ajustalo a gusto */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
 }
-.pc-col {
+.pc-lane { min-width: 0; }
+.pc-track {
   display: flex;
   flex-direction: column;
-  gap: 18px;
   will-change: transform;
 }
-.pc-col-up { margin-top: -46px; }
-.pc-col-down { margin-top: 46px; }
-.photo-collage img {
+.pc-item {
+  display: block;
+  margin-bottom: 18px;           /* margin y no gap, para que el loop sea exacto */
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pc-item img {
   width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
   object-fit: cover;
-  border-radius: 14px;
+}
+
+/* Solo se anima cuando el JS ya duplicó las fotos (clase pc-ready) */
+.pc-ready .pc-lane-down .pc-track { animation: pc-down 50s linear infinite; }
+.pc-ready .pc-lane-up .pc-track   { animation: pc-up 42s linear infinite; }
+.photo-collage:hover .pc-track    { animation-play-state: paused; }
+
+@keyframes pc-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes pc-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  .photo-collage { height: 420px; gap: 10px; }
+  .pc-item { margin-bottom: 10px; border-radius: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-collage { height: auto; -webkit-mask-image: none; mask-image: none; }
 }
 
 /* ---------- Gallery / Merch que pegó ---------- */
@@ -805,8 +828,8 @@ form.poni-form {
   .nav-toggle { display: block; }
   .header-cta { display: none; }
   .banner { min-height: 420px; }
-  .photo-collage { grid-template-columns: repeat(2, 1fr); }
-  .pc-col { display: contents; }
+  .photo-collage { height: 420px; gap: 10px; }
+  .pc-item { margin-bottom: 10px; border-radius: 10px; }
   .work-grid { grid-template-columns: 1fr 1fr; }
   .post-grid { grid-template-columns: 1fr; }
   .logo-wall { grid-template-columns: repeat(2, 1fr); }

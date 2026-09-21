@@ -46,47 +46,55 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealTargets.forEach(function (el) { io.observe(el); });
 }
 
-// Home hero carousel: auto-advance like a slideshow, with clickable dots
-var carousel = document.querySelector('.hero-carousel');
-if (carousel) {
+// Home hero carousel: auto-advance with sliding transition, clickable dots and swipe
+(function () {
+  var carousel = document.querySelector('.hero-carousel');
+  if (!carousel) return;
+
+  var track  = carousel.querySelector('.hc-track');
   var slides = carousel.querySelectorAll('.hc-slide');
-  var dots = carousel.querySelectorAll('.hc-dot');
-  var current = 0;
+  var dots   = carousel.querySelectorAll('.hc-dot');
   var intervalMs = 5000;
+  var current = 0;
   var timer = null;
 
   function goTo(index) {
-    slides[current].classList.remove('is-active');
-    dots[current].classList.remove('is-active');
     current = (index + slides.length) % slides.length;
-    slides[current].classList.add('is-active');
-    dots[current].classList.add('is-active');
+    track.style.transform = 'translateX(' + (-current * 100) + '%)';
+    slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
+    dots.forEach(function (d, n) { d.classList.toggle('is-active', n === current); });
   }
 
-  function next() { goTo(current + 1); }
-
-  function start() {
-    stop();
-    timer = window.setInterval(next, intervalMs);
-  }
   function stop() {
     if (timer) { window.clearInterval(timer); timer = null; }
   }
+  function start() {
+    stop();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = window.setInterval(function () { goTo(current + 1); }, intervalMs);
+  }
 
   dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      goTo(i);
-      start();
-    });
+    dot.addEventListener('click', function () { goTo(i); start(); });
   });
 
   carousel.addEventListener('mouseenter', stop);
   carousel.addEventListener('mouseleave', start);
 
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var startX = 0;
+  carousel.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    stop();
+  }, { passive: true });
+  carousel.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
     start();
-  }
-}
+  });
+
+  goTo(0);
+  start();
+})();
 
 // Photo collage columns: gentle scroll parallax — outer columns drift up, middle drifts down
 var pcCols = document.querySelectorAll('.pc-col-up, .pc-col-down');

@@ -54,7 +54,7 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   var track  = carousel.querySelector('.hc-track');
   var slides = carousel.querySelectorAll('.hc-slide');
   var dots   = carousel.querySelectorAll('.hc-dot');
-  var intervalMs = 5000;
+  var intervalMs = 3500;
   var current = 0;
   var timer = null;
 

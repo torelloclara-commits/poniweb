@@ -185,30 +185,27 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .hero .wordmark-img, .hero .tagline { animation: none; }
 }
 
-/* ---------- Home hero carousel (auto-rotating, like a slideshow) ---------- */
+/* ---------- Home hero carousel (auto-rotating, sliding) ---------- */
 .hero-carousel {
   position: relative;
   height: 760px;
   overflow: hidden;
 }
 .hc-track {
-  position: relative;
+  display: flex;
   height: 100%;
+  transition: transform 0.8s cubic-bezier(.65, 0, .35, 1);
+  will-change: transform;
 }
 .hc-slide {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 0 0 100%;
   display: flex;
   align-items: center;
   background-size: cover;
   background-position: center;
   color: var(--white);
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1;
-  transition: opacity 1.1s ease, transform 8s linear;
-  transform: scale(1.04);
 }
 .hc-slide::before {
   content: "";
@@ -231,12 +228,6 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   opacity: 0.95;
 }
 .hc-slide .btn { margin-top: 26px; }
-.hc-slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-  z-index: 2;
-}
 .hc-dots {
   position: absolute;
   z-index: 3;
@@ -270,9 +261,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .hero-carousel { height: 520px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hc-slide { transition: opacity 0.3s ease; transform: none !important; }
+  .hc-track { transition: none; }
 }
-
 /* ---------- Photo banner sections (full-bleed with overlay text) ---------- */
 .banner {
   position: relative;

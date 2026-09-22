@@ -769,7 +769,28 @@ form.poni-form {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+/* ---------- Blue overlay tint on photos (brand consistency) ---------- */
+.gallery figure::before,
+.gallery-static figure::before,
+.work-grid figure::before,
+.pc-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  opacity: 0.16;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.pc-item { position: relative; }
 
+/* Se atenúa al pasar el mouse, para que la foto "respire" */
+.gallery figure:hover::before,
+.gallery-static figure:hover::before,
+.work-grid figure:hover::before {
+  opacity: 0.06;
+}
 /* ---------- Image hover polish ---------- */
 .gallery figure, .gallery-static figure, .work-grid figure, .post-card img, .photo-collage img {
   overflow: hidden;

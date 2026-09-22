@@ -150,7 +150,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   background-image:
     url("../images/pattern-poni.png"),
     url("../images/pattern-poni.png");
-  background-size: 160px 160px, 160px 160px;
+  background-size: 160px auto, 160px auto;
   background-position: 0 0, 80px 80px;
   background-repeat: repeat, repeat;
   opacity: 0.9;

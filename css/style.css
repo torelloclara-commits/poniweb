@@ -860,3 +860,6 @@ form.poni-form {
   .logo-wall { grid-template-columns: repeat(2, 1fr); }
   .footer-bottom { flex-direction: column; }
 }
+@media (max-width: 768px) {
+  .logo img { height: 36px; }
+}

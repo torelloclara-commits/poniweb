@@ -173,8 +173,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--blue);
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
-  margin-top: 18px;
+  font-size: 3.5rem;      /* más grande (probá 3rem a 4.5rem) */
+  margin-top: -6rem;      /* lo sube, más cerca del logo PONI */
+}
   animation: heroFadeUp 0.7s ease-out 0.25s both;
 }
 @keyframes heroPop {

@@ -884,6 +884,8 @@ form.poni-form {
   transition: transform 0.2s;
 }
 .whatsapp-float:hover { transform: scale(1.1); }
+<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/svgs/brands/whatsapp.svg" alt="" class="whatsapp-icon">
+
 
 @media (max-width: 768px) {
   .whatsapp-float { width: 52px; height: 52px; font-size: 28px; bottom: 16px; right: 16px; }

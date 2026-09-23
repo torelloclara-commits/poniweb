@@ -150,16 +150,16 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   background-image:
     url("../images/pattern-poni.png"),
     url("../images/pattern-poni.png");
-  background-size: 220px auto, 220px auto;
-  background-position: 0 0, 110px 62px;
+  background-size: 170px auto, 170px auto;
+  background-position: 0 0, 85px 61px;
   background-repeat: repeat, repeat;
   opacity: 0.9;
   z-index: 0;
   animation: patternDrift 18s linear infinite;
 }
 @keyframes patternDrift {
-  from { background-position: 0 0, 110px 62px; }
-  to   { background-position: -120px 90px, -10px 152px; }
+  from { background-position: 0 0, 85px 61px; }
+  to   { background-position: -130px 100px, -45px 161px; }
 }
 .hero-inner { position: relative; z-index: 1; }
 .hero .wordmark-img {

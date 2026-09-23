@@ -156,6 +156,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   opacity: 0.9;
   z-index: 0;
   animation: patternDrift 18s linear infinite;
+   animation-direction: reverse;
 }
 @keyframes patternDrift {
   from { background-position: 0 0, 85px 61px; }

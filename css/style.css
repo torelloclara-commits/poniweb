@@ -2,6 +2,13 @@
    PONI — merch que pega
    Shared stylesheet
    ========================================================================== */
+@font-face {
+  font-family: "Caslon 3 LT";
+  src: url("../Caslon 3 LT Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --blue: #0380f2;
@@ -13,7 +20,7 @@
   --white: #ffffff;
 
   --font-display: "Baloo 2", "Poppins", sans-serif;   /* PONI logo, buttons, footer nav */
-  --font-serif: "Playfair Display", Georgia, serif;    /* headline copy */
+  --font-serif: "Caslon 3 LT", Georgia, serif;    /* headline copy */
   --font-body: "Poppins", "Segoe UI", sans-serif;      /* paragraphs, nav links */
 
   --container: 1200px;

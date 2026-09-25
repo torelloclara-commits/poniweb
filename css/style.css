@@ -156,7 +156,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   opacity: 0.9;
   z-index: 0;
   animation: patternDrift 18s linear infinite;
-   animation-direction: reverse;
+  animation-direction: reverse;
 }
 @keyframes patternDrift {
   from { background-position: 0 0, 85px 61px; }
@@ -173,9 +173,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--blue);
-  font-size: clamp(1.4rem, 6vw, 3.5rem);    /* más grande (probá 3rem a 4.5rem) */
-  margin-top: -6rem;      /* lo sube, más cerca del logo PONI */
-}
+  font-size: clamp(1.4rem, 6vw, 3.5rem);
+  margin-top: clamp(-3rem, -8vw, -6rem);
   animation: heroFadeUp 0.7s ease-out 0.25s both;
 }
 @keyframes heroPop {
@@ -186,6 +185,14 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   0% { opacity: 0; transform: translateY(14px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* Ajustes para pantallas chicas */
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 16px 70px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-pattern { animation: none; }
   .hero .wordmark-img, .hero .tagline { animation: none; }

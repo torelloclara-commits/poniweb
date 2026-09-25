@@ -898,8 +898,9 @@ form.poni-form {
 @media (max-width: 768px) {
   .whatsapp-float { width: 52px; height: 52px; font-size: 28px; bottom: 16px; right: 16px; }
 }
-.whatsapp-icon {
+.whatsapp-float img {
   width: 32px;
   height: 32px;
-  filter: invert(1);
+  display: block;
+}
 }

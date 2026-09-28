@@ -21,8 +21,8 @@
 
   --font-display: "Baloo 2", "Poppins", sans-serif;   /* PONI logo, buttons, footer nav */
   --font-serif: "Caslon 3 LT", Georgia, serif;    /* headline copy */
-  --font-body: "Poppins", "Segoe UI", sans-serif;      /* paragraphs, nav links */
-
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;   /* paragraphs, nav links */
+   
   --container: 1200px;
   --radius: 999px;
   --radius-card: 18px;

@@ -108,21 +108,21 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   color: var(--blue);
   letter-spacing: 0.01em;
 }
-.logo img { height: 56px; width: auto; display: block; }
+.logo img { height: 72px; width: auto; display: block; }
 .footer-brand .logo img { height: 40px; filter: brightness(0) invert(1); }
 .legal .logo-img { height: 56px; width: auto; margin: 0 auto; display: block; }
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;            /* antes 32px */
   flex: 1;
-  margin-left: 40px;
+  margin-left: 48px;    /* antes 40px */
 }
 .main-nav a {
   color: var(--blue);
-  font-size: 0.98rem;
+  font-size: 1.25rem;   /* antes 0.98rem */
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
 .main-nav a:hover { color: var(--blue-dark); }
 .header-cta { white-space: nowrap; }
@@ -882,7 +882,7 @@ form.poni-form {
   .footer-bottom { flex-direction: column; }
 }
 @media (max-width: 768px) {
-  .logo img { height: 36px; }
+  .logo img { height: 46px; }
 }
 
 .whatsapp-float {

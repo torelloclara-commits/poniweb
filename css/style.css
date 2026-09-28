@@ -28,21 +28,6 @@
   --radius-card: 18px;
 }
 
-.site-header .container,
-.header-inner {
-  max-width: none;          /* saca el límite de 1200px */
-  padding-left: 32px;       /* distancia del logo al borde izquierdo */
-  padding-right: 32px;      /* distancia del botón al borde derecho */
-}
-
-@media (max-width: 600px) {
-  .site-header .container,
-  .header-inner {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -113,8 +98,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  max-width: none;                       /* saca el límite de 1200px solo en el header */
+  padding: 18px clamp(16px, 3vw, 40px);  /* arriba/abajo 18px, costados se adaptan a la pantalla */
 }
 .logo {
   font-family: var(--font-display);
@@ -487,6 +472,11 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   display: flex;
   gap: 14px;
   margin-top: 18px;
+}
+.site-footer .wrap {
+  max-width: none;
+  padding-left: clamp(16px, 3vw, 40px);
+  padding-right: clamp(16px, 3vw, 40px);
 }
 .social-row a {
   width: 38px; height: 38px;
@@ -914,15 +904,15 @@ form.poni-form {
   transition: transform 0.2s;
 }
 .whatsapp-float:hover { transform: scale(1.1); }
-<img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/svgs/brands/whatsapp.svg" alt="" class="whatsapp-icon">
 
 
 @media (max-width: 768px) {
-  .whatsapp-float { width: 52px; height: 52px; font-size: 28px; bottom: 16px; right: 16px; }
+  .whatsapp-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+  .whatsapp-float img { width: 26px; height: 26px; }
 }
 .whatsapp-float img {
   width: 32px;
   height: 32px;
   display: block;
 }
-}
+

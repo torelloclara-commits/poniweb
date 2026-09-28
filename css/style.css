@@ -62,7 +62,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   gap: 8px;
   border: 1.5px solid currentColor;
   border-radius: var(--radius);
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.1rem;

@@ -98,8 +98,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  max-width: none;                       /* saca el límite de 1200px solo en el header */
-  padding: 18px clamp(16px, 3vw, 40px);  /* arriba/abajo 18px, costados se adaptan a la pantalla */
+  max-width: none;
+  padding: 6px clamp(16px, 3vw, 40px);   /* antes 18px arriba y abajo */
 }
 .logo {
   font-family: var(--font-display);

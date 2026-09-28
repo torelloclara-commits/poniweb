@@ -28,6 +28,21 @@
   --radius-card: 18px;
 }
 
+.site-header .container,
+.header-inner {
+  max-width: none;          /* saca el límite de 1200px */
+  padding-left: 32px;       /* distancia del logo al borde izquierdo */
+  padding-right: 32px;      /* distancia del botón al borde derecho */
+}
+
+@media (max-width: 600px) {
+  .site-header .container,
+  .header-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }

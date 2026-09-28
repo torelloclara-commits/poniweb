@@ -62,10 +62,10 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   gap: 8px;
   border: 1.5px solid currentColor;
   border-radius: var(--radius);
-  padding: 12px 26px;
+  padding: 16px 32px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   cursor: pointer;

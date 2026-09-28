@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PONI Merch",
+  "description": "Merchandising y merch personalizado para empresas y eventos.",
+  "url": "https://mundoponi.com",
+  "telephone": "+5491173352341",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "sameAs": [
+    "https://instagram.com/poni.merch",
+    "https://www.tiktok.com/@poni.merch"
+  ]
+}

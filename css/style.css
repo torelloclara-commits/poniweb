@@ -916,3 +916,59 @@ form.poni-form {
   display: block;
 }
 
+/* ==========================================================================
+   Móvil: cada sección ocupa el alto de la pantalla
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root { --header-h: 64px; }   /* alto aproximado de tu header en celular */
+
+  html {
+    scroll-snap-type: y proximity;          /* al scrollear, "imanta" cada sección */
+    scroll-padding-top: var(--header-h);
+  }
+
+  /* Secciones que ocupan una pantalla entera */
+  .hero,
+  .banner,
+  .banner.short,
+  .banner.tall,
+  .need-block,
+  .gallery-section,
+  .feature-rows {
+    min-height: calc(100vh - var(--header-h));    /* fallback */
+    min-height: calc(100svh - var(--header-h));   /* el bueno para celular */
+    scroll-snap-align: start;
+  }
+
+  /* El carrusel necesita alto fijo porque su contenido interno usa height:100% */
+  .hero-carousel {
+    height: calc(100vh - var(--header-h));
+    height: calc(100svh - var(--header-h));
+    scroll-snap-align: start;
+  }
+
+  /* Hero: contenido centrado en la pantalla */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+  }
+  .hero-inner { width: 100%; }
+
+  /* Secciones de contenido: centradas verticalmente */
+  .need-block,
+  .gallery-section,
+  .feature-rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .need-block > .wrap,
+  .gallery-section > .wrap,
+  .feature-rows > .wrap {
+    width: 100%;
+  }
+}
